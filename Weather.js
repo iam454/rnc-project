@@ -1,12 +1,23 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Weather({ temp, condition }) {
   return (
     <View style={styles.container}>
-      <Text>{temp}</Text>
-      <Text>{condition}</Text>
+      <View style={styles.conditionView}>
+        <Text style={styles.region}>Today, 지역명</Text>
+        <Text style={styles.condition}>{condition}</Text>
+      </View>
+      <View style={styles.imgView}>
+        <Ionicons name="rainy" size={220} color="black" />
+        <Text style={styles.temp}>{temp}</Text>
+        <View style={styles.tempMinMaxView}>
+          <Text style={styles.tempMax}>Hi: 최고기온</Text>
+          <Text style={styles.tempMin}>Lo: 최저기온</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -36,7 +47,39 @@ Weather.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  conditionView: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  imgView: {
+    flex: 2,
+    alignItems: "center",
+  },
+  tempMinMaxView: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  region: {
+    fontSize: 40,
+    paddingTop: 60,
+    paddingBottom: 20,
+  },
+  condition: {
+    fontSize: 30,
+    paddingTop: 20,
+  },
+  temp: {
+    fontSize: 30,
+    paddingVertical: 20,
+  },
+  tempMax: {
+    fontSize: 20,
+    paddingHorizontal: 10,
+  },
+  tempMin: {
+    fontSize: 20,
+    paddingHorizontal: 10,
   },
 });
