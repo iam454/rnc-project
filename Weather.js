@@ -121,7 +121,7 @@ export default function Weather({ name, temp, temp_max, temp_min, condition }) {
         <View style={styles.imgView}>
           <Image
             source={weatherOptions[condition].iconName}
-            style={{ width: 250, height: 200 }}
+            style={{ width: 200, height: 180 }}
           />
           <Text style={styles.temp}>{temp}°</Text>
           <View style={styles.tempMinMaxView}>
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
   // borderColor:'#000000'
   },
   name: {
-    fontSize: 35,
+    fontSize: 33,
     paddingTop: 100,
     paddingBottom: 20,
     color: '#ffffff',
