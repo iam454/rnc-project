@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, View, Text, StyleSheet, StatusBar } from "react-native";
+import {
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  ImageBackground,
+} from "react-native";
 import PropTypes from "prop-types";
 import { LinearGradient } from "expo-linear-gradient";
 import Swiper from "react-native-swiper";
@@ -11,8 +18,8 @@ import {
 
 
 import { 
-  AllertaStencil_400Regular 
-} from '@expo-google-fonts/allerta-stencil'
+  Allerta_400Regular 
+} from '@expo-google-fonts/allerta'
 
 
 import Loading from "./Loading";
@@ -101,100 +108,106 @@ const weatherOptions = {
   },
 };
 
-let imagePath = require('./components/bottom.png');
+const imagePath = require("./components/bottom.png");
 
 export default function Weather({ name, temp, temp_max, temp_min, condition }) {
-  let [fontsloaded] = useFonts({
-    // NanumGothic_400Regular,
-    // NanumGothic_700Bold,
-    // NanumGothic_800ExtraBold,
-
-    AllertaStencil_400Regular, 
-  });
-
-  if(!fontsloaded){
-    return <Loading />
-  }
-
+    let [fontsloaded] = useFonts({
+        // NanumGothic_400Regular,
+        // NanumGothic_700Bold,
+        // NanumGothic_800ExtraBold,
+        Allerta_400Regular, 
+      });
+    
+      if(!fontsloaded){
+        return <Loading />
+      }
   return (
     <Swiper index={1} loop={false} showsPagination={false}>
+      {/* 어제 날씨를 알려주는 슬라이드 */}
       <LinearGradient
         colors={weatherOptions[condition].gradient}
         style={styles.container}
       >
-        <StatusBar barStyle="light-content" />
-        <View style={styles.conditionView}>
-          <Text style={styles.name}>Yesterday, {name}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.imgView}>
-          <Image
-            source={weatherOptions[condition].iconName}
-            style={{ width: 200, height: 180 }}
-          />
-          <Text style={styles.temp}>{temp}°</Text>
-          <View style={styles.tempMinMaxView}>
-            <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-            <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+        <ImageBackground
+          style={{ width: "100%", height: "100%" }}
+          source={imagePath}
+          resizeMode="cover"
+        >
+          <StatusBar barStyle="light-content" />
+          <View style={styles.conditionView}>
+            <Text style={styles.name}>Yesterday, {name}</Text>
+            <Text style={styles.condition}>{condition}</Text>
           </View>
-        </View>
-        <Image
-           style={{height:'80%',width:'100%'}}
-            source={imagePath}
-          />
+          <View style={styles.imgView}>
+            <Image
+              source={weatherOptions[condition].iconName}
+              style={{ width: 250, height: 200 }}
+            />
+            <Text style={styles.temp}>{temp}°</Text>
+            <View style={styles.tempMinMaxView}>
+              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
+              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+            </View>
+          </View>
+        </ImageBackground>
       </LinearGradient>
+
+      {/* 오늘 날씨를 알려주는 슬라이드 */}
       <LinearGradient
         colors={weatherOptions[condition].gradient}
         style={styles.container}
       >
-        <StatusBar barStyle="light-content" />
-        <View style={styles.conditionView}>
-          <Text style={styles.name}>Today, {name}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.imgView}>
-          <Image
-            source={weatherOptions[condition].iconName}
-            style={{ width: 200, height: 180 }}
-          />
-          <Text style={styles.temp}>{temp}°</Text>
-          <View style={styles.tempMinMaxView}>
-            <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-            <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+        <ImageBackground
+          style={{ width: "100%", height: "100%" }}
+          source={imagePath}
+          resizeMode="cover"
+        >
+          <StatusBar barStyle="light-content" />
+          <View style={styles.conditionView}>
+            <Text style={styles.name}>Today, {name}</Text>
+            <Text style={styles.condition}>{condition}</Text>
           </View>
-        </View>
-          <Image
-           style={{height:'80%',width:'100%'}}
-            source={imagePath}
-          />
+          <View style={styles.imgView}>
+            <Image
+              source={weatherOptions[condition].iconName}
+              style={{ width: 250, height: 200 }}
+            />
+            <Text style={styles.temp}>{temp}°</Text>
+            <View style={styles.tempMinMaxView}>
+              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
+              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+            </View>
+          </View>
+        </ImageBackground>
       </LinearGradient>
+
+      {/* 내일 날씨를 알려주는 슬라이드 */}
       <LinearGradient
-      
         colors={weatherOptions[condition].gradient}
         style={styles.container}
       >
-        <StatusBar barStyle="light-content" />
-        
-        <View style={styles.conditionView}>
-          <Text style={styles.name}>Tomorrow, {name}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.imgView}>
-          <Image
-            source={weatherOptions[condition].iconName}
-            style={{ width: 200, height: 180 }}
-          />
-          <Text style={styles.temp}>{temp}°</Text>
-          <View style={styles.tempMinMaxView}>
-            <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-            <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+        <ImageBackground
+          style={{ width: "100%", height: "100%" }}
+          source={imagePath}
+          resizeMode="cover"
+        >
+          <StatusBar barStyle="light-content" />
+          <View style={styles.conditionView}>
+            <Text style={styles.name}>Tomorrow, {name}</Text>
+            <Text style={styles.condition}>{condition}</Text>
           </View>
-          
-        </View>
-        <Image
-           style={{height:'80%',width:'100%'}}
-            source={imagePath}
-          />
+          <View style={styles.imgView}>
+            <Image
+              source={weatherOptions[condition].iconName}
+              style={{ width: 250, height: 200 }}
+            />
+            <Text style={styles.temp}>{temp}°</Text>
+            <View style={styles.tempMinMaxView}>
+              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
+              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+            </View>
+          </View>
+        </ImageBackground>
       </LinearGradient>
     </Swiper>
   );
@@ -226,64 +239,51 @@ Weather.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  
   container: {
-    flex: 1
+    flex: 1,
   },
   conditionView: {
-    flex: 10,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // borderWidth:3,
-    // borderColor:'#000000',
   },
   imgView: {
-    flex: 1,
+    flex: 3.5,
     alignItems: "center",
-    paddingTop: 10,
-    // borderWidth:3,
-    // borderColor:'#ababab'
   },
   tempMinMaxView: {
-    flex:1,
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "center",
-    paddingTop: 10,
-  //  borderWidth:3,
-  // borderColor:'#000000'
   },
   name: {
-    fontSize: 33,
-    paddingTop: 100,
+    fontSize: 35,
+    paddingTop: 60,
     paddingBottom: 20,
     color: '#ffffff',
-    fontFamily : 'AllertaStencil_400Regular',
+    fontFamily : 'Allerta_400Regular',
   },
   condition: {
     fontSize: 30,
-    paddingTop: 5,
+    paddingTop: 20,
     color: '#ffffff',
-    fontFamily : 'AllertaStencil_400Regular',
+    fontFamily : 'Allerta_400Regular',
   },
   temp: {
     fontSize: 30,
     paddingVertical: 20,
-    paddingTop: 30,
     color: '#ffffff',
-    fontFamily : 'AllertaStencil_400Regular',
+    fontFamily : 'Allerta_400Regular',
   },
   tempMax: {
     fontSize: 20,
     paddingHorizontal: 10,
     color: '#ffffff',
-    fontFamily : 'AllertaStencil_400Regular',
+    fontFamily : 'Allerta_400Regular',
   },
   tempMin: {
     fontSize: 20,
     paddingHorizontal: 10,
     color: '#ffffff',
-    fontFamily : 'AllertaStencil_400Regular',
+    fontFamily : 'Allerta_400Regular',
   },
-
 });
