@@ -146,7 +146,7 @@ export default function Weather({ name, temp, temp_max, temp_min, condition }) {
         <View style={styles.imgView}>
           <Image
             source={weatherOptions[condition].iconName}
-            style={{ width: 250, height: 200 }}
+            style={{ width: 200, height: 180 }}
           />
           <Text style={styles.temp}>{temp}°</Text>
           <View style={styles.tempMinMaxView}>
