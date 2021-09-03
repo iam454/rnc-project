@@ -111,16 +111,16 @@ const weatherOptions = {
 const imagePath = require("./components/bottom.png");
 
 export default function Weather({ name, temp, temp_max, temp_min, condition }) {
-    let [fontsloaded] = useFonts({
-        // NanumGothic_400Regular,
-        // NanumGothic_700Bold,
-        // NanumGothic_800ExtraBold,
-        Allerta_400Regular, 
-      });
+    // let [fontsloaded] = useFonts({
+    //     // NanumGothic_400Regular,
+    //     // NanumGothic_700Bold,
+    //     // NanumGothic_800ExtraBold,
+    //     Allerta_400Regular, 
+    //   });
     
-      if(!fontsloaded){
-        return <Loading />
-      }
+    //   if(!fontsloaded){
+    //     return <Loading />
+    //   }
   return (
     <Swiper index={1} loop={false} showsPagination={false}>
       {/* 어제 날씨를 알려주는 슬라이드 */}
@@ -260,30 +260,30 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingBottom: 20,
     color: '#ffffff',
-    fontFamily : 'Allerta_400Regular',
+    //fontFamily : 'Allerta_400Regular',
   },
   condition: {
     fontSize: 30,
     paddingTop: 20,
     color: '#ffffff',
-    fontFamily : 'Allerta_400Regular',
+   // fontFamily : 'Allerta_400Regular',
   },
   temp: {
     fontSize: 30,
     paddingVertical: 20,
     color: '#ffffff',
-    fontFamily : 'Allerta_400Regular',
+    //fontFamily : 'Allerta_400Regular',
   },
   tempMax: {
     fontSize: 20,
     paddingHorizontal: 10,
     color: '#ffffff',
-    fontFamily : 'Allerta_400Regular',
+   // fontFamily : 'Allerta_400Regular',
   },
   tempMin: {
     fontSize: 20,
     paddingHorizontal: 10,
     color: '#ffffff',
-    fontFamily : 'Allerta_400Regular',
+    //fontFamily : 'Allerta_400Regular',
   },
 });
