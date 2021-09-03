@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, View, Text, StyleSheet, StatusBar } from "react-native";
+import {
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  ImageBackground,
+} from "react-native";
 import PropTypes from "prop-types";
 import { LinearGradient } from "expo-linear-gradient";
 import Swiper from "react-native-swiper";
@@ -16,7 +23,7 @@ import snow from "./components/snow.png";
 import squall from "./components/squall.png";
 import thunderstorm from "./components/thunderstorm.png";
 import tornado from "./components/tornado.png";
-//한꺼번에 import하는 방식을 몰라서.. 하나씩 했어요.. 아는 분 있으면 수정바랍니다..
+import bottom from "./components/bottom.png";
 
 const weatherOptions = {
   Thunderstorm: {
@@ -85,71 +92,96 @@ const weatherOptions = {
   },
 };
 
+const imagePath = require("./components/bottom.png");
+
 export default function Weather({ name, temp, temp_max, temp_min, condition }) {
   return (
     <Swiper index={1} loop={false} showsPagination={false}>
+      {/* 어제 날씨를 알려주는 슬라이드 */}
       <LinearGradient
         colors={weatherOptions[condition].gradient}
         style={styles.container}
       >
-        <StatusBar barStyle="light-content" />
-        <View style={styles.conditionView}>
-          <Text style={styles.name}>Yesterday, {name}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.imgView}>
-          <Image
-            source={weatherOptions[condition].iconName}
-            style={{ width: 250, height: 200 }}
-          />
-          <Text style={styles.temp}>{temp}°</Text>
-          <View style={styles.tempMinMaxView}>
-            <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-            <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+        <ImageBackground
+          style={{ width: "100%", height: "100%" }}
+          source={imagePath}
+          resizeMode="cover"
+        >
+          <StatusBar barStyle="light-content" />
+          <View style={styles.conditionView}>
+            <Text style={styles.name}>Yesterday, {name}</Text>
+            <Text style={styles.condition}>{condition}</Text>
           </View>
-        </View>
+          <View style={styles.imgView}>
+            <Image
+              source={weatherOptions[condition].iconName}
+              style={{ width: 250, height: 200 }}
+            />
+            <Text style={styles.temp}>{temp}°</Text>
+            <View style={styles.tempMinMaxView}>
+              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
+              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+            </View>
+          </View>
+        </ImageBackground>
       </LinearGradient>
+
+      {/* 오늘 날씨를 알려주는 슬라이드 */}
       <LinearGradient
         colors={weatherOptions[condition].gradient}
         style={styles.container}
       >
-        <StatusBar barStyle="light-content" />
-        <View style={styles.conditionView}>
-          <Text style={styles.name}>Today, {name}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.imgView}>
-          <Image
-            source={weatherOptions[condition].iconName}
-            style={{ width: 250, height: 200 }}
-          />
-          <Text style={styles.temp}>{temp}°</Text>
-          <View style={styles.tempMinMaxView}>
-            <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-            <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+        <ImageBackground
+          style={{ width: "100%", height: "100%" }}
+          source={imagePath}
+          resizeMode="cover"
+        >
+          <StatusBar barStyle="light-content" />
+          <View style={styles.conditionView}>
+            <Text style={styles.name}>Today, {name}</Text>
+            <Text style={styles.condition}>{condition}</Text>
           </View>
-        </View>
+          <View style={styles.imgView}>
+            <Image
+              source={weatherOptions[condition].iconName}
+              style={{ width: 250, height: 200 }}
+            />
+            <Text style={styles.temp}>{temp}°</Text>
+            <View style={styles.tempMinMaxView}>
+              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
+              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+            </View>
+          </View>
+        </ImageBackground>
       </LinearGradient>
+
+      {/* 내일 날씨를 알려주는 슬라이드 */}
       <LinearGradient
         colors={weatherOptions[condition].gradient}
         style={styles.container}
       >
-        <StatusBar barStyle="light-content" />
-        <View style={styles.conditionView}>
-          <Text style={styles.name}>Tomorrow, {name}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.imgView}>
-          <Image
-            source={weatherOptions[condition].iconName}
-            style={{ width: 250, height: 200 }}
-          />
-          <Text style={styles.temp}>{temp}°</Text>
-          <View style={styles.tempMinMaxView}>
-            <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-            <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+        <ImageBackground
+          style={{ width: "100%", height: "100%" }}
+          source={imagePath}
+          resizeMode="cover"
+        >
+          <StatusBar barStyle="light-content" />
+          <View style={styles.conditionView}>
+            <Text style={styles.name}>Tomorrow, {name}</Text>
+            <Text style={styles.condition}>{condition}</Text>
           </View>
-        </View>
+          <View style={styles.imgView}>
+            <Image
+              source={weatherOptions[condition].iconName}
+              style={{ width: 250, height: 200 }}
+            />
+            <Text style={styles.temp}>{temp}°</Text>
+            <View style={styles.tempMinMaxView}>
+              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
+              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
+            </View>
+          </View>
+        </ImageBackground>
       </LinearGradient>
     </Swiper>
   );
