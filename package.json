@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/allerta-stencil": "^0.2.0",
     "@expo-google-fonts/inter": "^0.2.0",
     "@expo-google-fonts/nanum-gothic": "^0.2.0",
     "@react-navigation/bottom-tabs": "^6.0.5",

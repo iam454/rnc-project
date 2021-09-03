@@ -8,9 +8,16 @@ import {
   NanumGothic_700Bold,
   NanumGothic_800ExtraBold
 } from '@expo-google-fonts/nanum-gothic'
+
+
+import { 
+  AllertaStencil_400Regular 
+} from '@expo-google-fonts/allerta-stencil'
+
+
 import Loading from "./Loading";
 import { useFonts } from "expo-font";
-import { Dimensions } from 'react-native';
+
 
 import ash from "./components/ash.png";
 import clearNight from "./components/clear-night.png";
@@ -98,9 +105,11 @@ let imagePath = require('./components/bottom.png');
 
 export default function Weather({ name, temp, temp_max, temp_min, condition }) {
   let [fontsloaded] = useFonts({
-    NanumGothic_400Regular,
-    NanumGothic_700Bold,
-    NanumGothic_800ExtraBold,
+    // NanumGothic_400Regular,
+    // NanumGothic_700Bold,
+    // NanumGothic_800ExtraBold,
+
+    AllertaStencil_400Regular, 
   });
 
   if(!fontsloaded){
@@ -249,32 +258,32 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     paddingBottom: 20,
     color: '#ffffff',
-    fontFamily : 'NanumGothic_800ExtraBold',
+    fontFamily : 'AllertaStencil_400Regular',
   },
   condition: {
     fontSize: 30,
     paddingTop: 5,
     color: '#ffffff',
-    fontFamily : 'NanumGothic_700Bold',
+    fontFamily : 'AllertaStencil_400Regular',
   },
   temp: {
     fontSize: 30,
     paddingVertical: 20,
     paddingTop: 30,
     color: '#ffffff',
-    fontFamily : 'NanumGothic_700Bold',
+    fontFamily : 'AllertaStencil_400Regular',
   },
   tempMax: {
     fontSize: 20,
     paddingHorizontal: 10,
     color: '#ffffff',
-    fontFamily : 'NanumGothic_700Bold',
+    fontFamily : 'AllertaStencil_400Regular',
   },
   tempMin: {
     fontSize: 20,
     paddingHorizontal: 10,
     color: '#ffffff',
-    fontFamily : 'NanumGothic_700Bold',
+    fontFamily : 'AllertaStencil_400Regular',
   },
 
 });
