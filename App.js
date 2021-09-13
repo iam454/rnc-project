@@ -12,22 +12,15 @@ export default class extends React.Component {
     isLoading: true,
   };
   getWeather = async (latitude, longitude) => {
-    const {
-      data: {
-        main: { temp, temp_max, temp_min },
-        weather,
-        name,
-      },
-    } = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+    const { data } = await axios.get(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=${API_KEY}&units=metric`
     );
     this.setState({
       isLoading: false,
-      condition: weather[0].main,
-      temp,
-      temp_max,
-      temp_min,
-      name,
+      currentTemp: data.current.temp,
+      currentCondition: data.current.weather[0].main,
+      tomorrowTemp: data.daily[1].temp.day,
+      tomorrowCondition: data.daily[1].weather[0].main,
     });
   };
   getLocation = async () => {
@@ -45,16 +38,21 @@ export default class extends React.Component {
     this.getLocation();
   }
   render() {
-    const { isLoading, name, temp, temp_max, temp_min, condition } = this.state;
+    const {
+      isLoading,
+      currentTemp,
+      currentCondition,
+      tomorrowTemp,
+      tomorrowCondition,
+    } = this.state;
     return isLoading ? (
       <Loading />
     ) : (
       <Weather
-        name={name}
-        temp={Math.round(temp)}
-        temp_max={Math.round(temp_max)}
-        temp_min={Math.round(temp_min)}
-        condition={condition}
+        currentTemp={Math.round(currentTemp)}
+        currentCondition={currentCondition}
+        tomorrowTemp={Math.round(tomorrowTemp)}
+        tomorrowCondition={tomorrowCondition}
       />
     );
   }

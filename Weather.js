@@ -94,12 +94,17 @@ const weatherOptions = {
 
 const imagePath = require("./components/bottom.png");
 
-export default function Weather({ name, temp, temp_max, temp_min, condition }) {
+export default function Weather({
+  currentTemp,
+  currentCondition,
+  tomorrowTemp,
+  tomorrowCondition,
+}) {
   return (
     <Swiper index={1} loop={false} showsPagination={false}>
       {/* 어제 날씨를 알려주는 슬라이드 */}
-      <LinearGradient
-        colors={weatherOptions[condition].gradient}
+      {/* <LinearGradient
+        colors={weatherOptions[yesterdayCondition].gradient}
         style={styles.container}
       >
         <ImageBackground
@@ -109,26 +114,22 @@ export default function Weather({ name, temp, temp_max, temp_min, condition }) {
         >
           <StatusBar barStyle="light-content" />
           <View style={styles.conditionView}>
-            <Text style={styles.name}>Yesterday, {name}</Text>
-            <Text style={styles.condition}>{condition}</Text>
+            <Text style={styles.name}>Yesterday</Text>
+            <Text style={styles.condition}>{yesterdayCondition}</Text>
           </View>
           <View style={styles.imgView}>
             <Image
-              source={weatherOptions[condition].iconName}
+              source={weatherOptions[yesterdayCondition].iconName}
               style={{ width: 250, height: 200 }}
             />
-            <Text style={styles.temp}>{temp}°</Text>
-            <View style={styles.tempMinMaxView}>
-              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
-            </View>
+            <Text style={styles.temp}>{yesterdayTemp}°</Text>
           </View>
         </ImageBackground>
-      </LinearGradient>
+      </LinearGradient> */}
 
       {/* 오늘 날씨를 알려주는 슬라이드 */}
       <LinearGradient
-        colors={weatherOptions[condition].gradient}
+        colors={weatherOptions[currentCondition].gradient}
         style={styles.container}
       >
         <ImageBackground
@@ -138,26 +139,22 @@ export default function Weather({ name, temp, temp_max, temp_min, condition }) {
         >
           <StatusBar barStyle="light-content" />
           <View style={styles.conditionView}>
-            <Text style={styles.name}>Today, {name}</Text>
-            <Text style={styles.condition}>{condition}</Text>
+            <Text style={styles.name}>Today</Text>
+            <Text style={styles.condition}>{currentCondition}</Text>
           </View>
           <View style={styles.imgView}>
             <Image
-              source={weatherOptions[condition].iconName}
+              source={weatherOptions[currentCondition].iconName}
               style={{ width: 250, height: 200 }}
             />
-            <Text style={styles.temp}>{temp}°</Text>
-            <View style={styles.tempMinMaxView}>
-              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
-            </View>
+            <Text style={styles.temp}>{currentTemp}°</Text>
           </View>
         </ImageBackground>
       </LinearGradient>
 
       {/* 내일 날씨를 알려주는 슬라이드 */}
       <LinearGradient
-        colors={weatherOptions[condition].gradient}
+        colors={weatherOptions[tomorrowCondition].gradient}
         style={styles.container}
       >
         <ImageBackground
@@ -167,19 +164,15 @@ export default function Weather({ name, temp, temp_max, temp_min, condition }) {
         >
           <StatusBar barStyle="light-content" />
           <View style={styles.conditionView}>
-            <Text style={styles.name}>Tomorrow, {name}</Text>
-            <Text style={styles.condition}>{condition}</Text>
+            <Text style={styles.name}>Tomorrow</Text>
+            <Text style={styles.condition}>{tomorrowCondition}</Text>
           </View>
           <View style={styles.imgView}>
             <Image
-              source={weatherOptions[condition].iconName}
+              source={weatherOptions[tomorrowCondition].iconName}
               style={{ width: 250, height: 200 }}
             />
-            <Text style={styles.temp}>{temp}°</Text>
-            <View style={styles.tempMinMaxView}>
-              <Text style={styles.tempMax}>Hi: {temp_max}°</Text>
-              <Text style={styles.tempMin}>Lo: {temp_min}°</Text>
-            </View>
+            <Text style={styles.temp}>{tomorrowTemp}°</Text>
           </View>
         </ImageBackground>
       </LinearGradient>
@@ -188,11 +181,27 @@ export default function Weather({ name, temp, temp_max, temp_min, condition }) {
 }
 
 Weather.propTypes = {
-  name: PropTypes.string.isRequired,
-  temp: PropTypes.number.isRequired,
-  temp_max: PropTypes.number.isRequired,
-  temp_min: PropTypes.number.isRequired,
-  condition: PropTypes.oneOf([
+  currentTemp: PropTypes.number.isRequired,
+  tomorrowTemp: PropTypes.number.isRequired,
+  currentCondition: PropTypes.oneOf([
+    "Thunderstorm",
+    "Drizzle",
+    "Rain",
+    "Snow",
+    "Mist",
+    "Smoke",
+    "Haze",
+    "Dust",
+    "Fog",
+    "Sand",
+    "Dust",
+    "Ash",
+    "Squall",
+    "Tornado",
+    "Clear",
+    "Clouds",
+  ]).isRequired,
+  tomorrowCondition: PropTypes.oneOf([
     "Thunderstorm",
     "Drizzle",
     "Rain",
