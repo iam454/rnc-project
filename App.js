@@ -18,8 +18,12 @@ export default class extends React.Component {
     this.setState({
       isLoading: false,
       currentTemp: data.current.temp,
+      currentTempMin: data.daily[0].temp.min,
+      currentTempMax: data.daily[0].temp.max,
       currentCondition: data.current.weather[0].main,
       tomorrowTemp: data.daily[1].temp.day,
+      tomorrowTempMin: data.daily[1].temp.min,
+      tomorrowTempMax: data.daily[1].temp.Max,
       tomorrowCondition: data.daily[1].weather[0].main,
     });
   };
@@ -41,8 +45,12 @@ export default class extends React.Component {
     const {
       isLoading,
       currentTemp,
+      currentTempMin,
+      currentTempMax,
       currentCondition,
       tomorrowTemp,
+      tomorrowTempMin,
+      tomorrowTempMax,
       tomorrowCondition,
     } = this.state;
     return isLoading ? (
@@ -50,8 +58,12 @@ export default class extends React.Component {
     ) : (
       <Weather
         currentTemp={Math.round(currentTemp)}
+        currentTempMin={Math.round(currentTempMin)}
+        currentTempMax={Math.round(currentTempMax)}
         currentCondition={currentCondition}
         tomorrowTemp={Math.round(tomorrowTemp)}
+        tomorrowTempMin={Math.round(tomorrowTempMin)}
+        tomorrowTempMax={Math.round(tomorrowTempMax)}
         tomorrowCondition={tomorrowCondition}
       />
     );
