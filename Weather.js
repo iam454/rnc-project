@@ -23,9 +23,6 @@ import squall from "./components/squall.png";
 import thunderstorm from "./components/thunderstorm.png";
 import tornado from "./components/tornado.png";
 
-import { AppLoading } from "expo";
-import { useFonts, Raleway_400Regular } from "@expo-google-fonts/raleway";
-
 const weatherOptions = {
   Thunderstorm: {
     iconName: thunderstorm,
