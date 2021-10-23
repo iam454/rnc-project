@@ -23,7 +23,6 @@ import snow from "./components/snow.png";
 import squall from "./components/squall.png";
 import thunderstorm from "./components/thunderstorm.png";
 import tornado from "./components/tornado.png";
-import bottom from "./components/bottom.png";
 
 const weatherOptions = {
   Thunderstorm: {
@@ -239,17 +238,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   name: {
-    fontSize: 40,
+    fontSize: 35,
     paddingTop: 60,
     paddingBottom: 20,
+    color: "#ffffff",
   },
   condition: {
     fontSize: 30,
     paddingTop: 20,
+    color: "#ffffff",
   },
   temp: {
     fontSize: 30,
     paddingVertical: 20,
+    color: "#ffffff",
   },
   tempMax: {
     fontSize: 20,
