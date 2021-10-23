@@ -195,7 +195,12 @@ export default function Weather({
 
 Weather.propTypes = {
   currentTemp: PropTypes.number.isRequired,
+  currentTempMin: PropTypes.number.isRequired,
+  currentTempMax: PropTypes.number.isRequired,
   tomorrowTempDay: PropTypes.number.isRequired,
+  tomorrowTempNight: PropTypes.number.isRequired,
+  tomorrowTempMin: PropTypes.number.isRequired,
+  tomorrowTempMax: PropTypes.number.isRequired,
   currentCondition: PropTypes.oneOf([
     "Thunderstorm",
     "Drizzle",
