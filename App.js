@@ -23,7 +23,7 @@ export default class extends React.Component {
       currentCondition: data.current.weather[0].main,
       tomorrowTemp: data.daily[1].temp.day,
       tomorrowTempMin: data.daily[1].temp.min,
-      tomorrowTempMax: data.daily[1].temp.Max,
+      tomorrowTempMax: data.daily[1].temp.max,
       tomorrowCondition: data.daily[1].weather[0].main,
     });
   };

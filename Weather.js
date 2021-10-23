@@ -12,7 +12,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import Swiper from "react-native-swiper";
 
 import ash from "./components/ash.png";
-import clearNight from "./components/clear-night.png";
 import clear from "./components/clear.png";
 import clouds from "./components/clouds.png";
 import drizzle from "./components/drizzle.png";
@@ -95,8 +94,12 @@ const imagePath = require("./components/bottom.png");
 
 export default function Weather({
   currentTemp,
+  currentTempMin,
+  currentTempMax,
   currentCondition,
   tomorrowTemp,
+  tomorrowTempMin,
+  tomorrowTempMax,
   tomorrowCondition,
 }) {
   return (
@@ -148,6 +151,10 @@ export default function Weather({
             />
             <Text style={styles.temp}>{currentTemp}°</Text>
           </View>
+          <View style={styles.tempMinMaxView}>
+            <Text style={styles.tempMin}>Lo : {currentTempMin}°</Text>
+            <Text style={styles.tempMax}>Hi : {currentTempMax}°</Text>
+          </View>
         </ImageBackground>
       </LinearGradient>
 
@@ -172,6 +179,10 @@ export default function Weather({
               style={{ width: 250, height: 200 }}
             />
             <Text style={styles.temp}>{tomorrowTemp}°</Text>
+          </View>
+          <View style={styles.tempMinMaxView}>
+            <Text style={styles.tempMin}>Lo : {tomorrowTempMin}°</Text>
+            <Text style={styles.tempMax}>Hi : {tomorrowTempMax}°</Text>
           </View>
         </ImageBackground>
       </LinearGradient>
@@ -225,7 +236,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   conditionView: {
-    flex: 1,
+    flex: 2,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -234,8 +245,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   tempMinMaxView: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "center",
+    paddingBottom: 100,
   },
   name: {
     fontSize: 35,
@@ -256,9 +269,11 @@ const styles = StyleSheet.create({
   tempMax: {
     fontSize: 20,
     paddingHorizontal: 10,
+    color: "#ffffff",
   },
   tempMin: {
     fontSize: 20,
     paddingHorizontal: 10,
+    color: "#ffffff",
   },
 });
