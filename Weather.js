@@ -97,13 +97,14 @@ export default function Weather({
   currentTempMin,
   currentTempMax,
   currentCondition,
-  tomorrowTemp,
+  tomorrowTempDay,
+  tomorrowTempNight,
   tomorrowTempMin,
   tomorrowTempMax,
   tomorrowCondition,
 }) {
   return (
-    <Swiper index={1} loop={false} showsPagination={false}>
+    <Swiper loop={false} showsPagination={false}>
       {/* 어제 날씨를 알려주는 슬라이드 */}
       {/* <LinearGradient
         colors={weatherOptions[yesterdayCondition].gradient}
@@ -147,7 +148,7 @@ export default function Weather({
           <View style={styles.imgView}>
             <Image
               source={weatherOptions[currentCondition].iconName}
-              style={{ width: 250, height: 200 }}
+              style={{ width: 200, height: 180 }}
             />
             <Text style={styles.temp}>{currentTemp}°</Text>
           </View>
@@ -176,10 +177,12 @@ export default function Weather({
           <View style={styles.imgView}>
             <Image
               source={weatherOptions[tomorrowCondition].iconName}
-              style={{ width: 250, height: 200 }}
+              style={{ width: 200, height: 180 }}
             />
-            <Text style={styles.temp}>{tomorrowTemp}°</Text>
+            <Text style={styles.tempDay}>Day : {tomorrowTempDay}°</Text>
+            <Text style={styles.tempNight}>Night : {tomorrowTempNight}°</Text>
           </View>
+
           <View style={styles.tempMinMaxView}>
             <Text style={styles.tempMin}>Lo : {tomorrowTempMin}°</Text>
             <Text style={styles.tempMax}>Hi : {tomorrowTempMax}°</Text>
@@ -192,7 +195,7 @@ export default function Weather({
 
 Weather.propTypes = {
   currentTemp: PropTypes.number.isRequired,
-  tomorrowTemp: PropTypes.number.isRequired,
+  tomorrowTempDay: PropTypes.number.isRequired,
   currentCondition: PropTypes.oneOf([
     "Thunderstorm",
     "Drizzle",
@@ -263,7 +266,17 @@ const styles = StyleSheet.create({
   },
   temp: {
     fontSize: 30,
-    paddingVertical: 20,
+    paddingTop: 40,
+    color: "#ffffff",
+  },
+  tempDay: {
+    fontSize: 25,
+    paddingTop: 20,
+    color: "#ffffff",
+  },
+  tempNight: {
+    fontSize: 25,
+    paddingTop: 5,
     color: "#ffffff",
   },
   tempMax: {

@@ -21,7 +21,8 @@ export default class extends React.Component {
       currentTempMin: data.daily[0].temp.min,
       currentTempMax: data.daily[0].temp.max,
       currentCondition: data.current.weather[0].main,
-      tomorrowTemp: data.daily[1].temp.day,
+      tomorrowTempDay: data.daily[1].temp.day,
+      tomorrowTempNight: data.daily[1].temp.night,
       tomorrowTempMin: data.daily[1].temp.min,
       tomorrowTempMax: data.daily[1].temp.max,
       tomorrowCondition: data.daily[1].weather[0].main,
@@ -48,7 +49,8 @@ export default class extends React.Component {
       currentTempMin,
       currentTempMax,
       currentCondition,
-      tomorrowTemp,
+      tomorrowTempDay,
+      tomorrowTempNight,
       tomorrowTempMin,
       tomorrowTempMax,
       tomorrowCondition,
@@ -61,7 +63,8 @@ export default class extends React.Component {
         currentTempMin={Math.round(currentTempMin)}
         currentTempMax={Math.round(currentTempMax)}
         currentCondition={currentCondition}
-        tomorrowTemp={Math.round(tomorrowTemp)}
+        tomorrowTempDay={Math.round(tomorrowTempDay)}
+        tomorrowTempNight={Math.round(tomorrowTempNight)}
         tomorrowTempMin={Math.round(tomorrowTempMin)}
         tomorrowTempMax={Math.round(tomorrowTempMax)}
         tomorrowCondition={tomorrowCondition}
