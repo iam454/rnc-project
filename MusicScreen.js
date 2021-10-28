@@ -11,10 +11,10 @@ import {
 import Loading from "./Loading";
 
 
-export default function SettingsScreen() {
+export default function MusicScreen() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
+        <Text>Music!!!</Text>
       </View>
     );
   }

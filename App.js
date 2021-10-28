@@ -4,7 +4,7 @@ import Loading from "./Loading";
 import * as Location from "expo-location";
 import axios from "axios";
 import Weather from "./Weather";
-import SettingsScreen from "./SettingsScreen";
+import MusicScreen from "./MusicScreen";
 
 
 import { Text, View } from 'react-native';
@@ -15,15 +15,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 const API_KEY = "223bbc26d2844113d819cabfeff1a06e";
 
-
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
 
 export default class extends React.Component {
   state = {
@@ -70,22 +61,12 @@ export default class extends React.Component {
 
       <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name ="home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Music" component={MusicScreen} />
         <Tab.Screen name ="Weather" component={
-        <Weather
-        name={name}
-        temp={Math.round(temp)}
-        temp_max={Math.round(temp_max)}
-        temp_min={Math.round(temp_min)}
-        condition={condition}
-      />
+        Weather
         } />
       </Tab.Navigator>
     </NavigationContainer>
-
-
-    
     );
   }
 }
