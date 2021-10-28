@@ -10,7 +10,8 @@ import MusicScreen from "./MusicScreen";
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 const API_KEY = "223bbc26d2844113d819cabfeff1a06e";
@@ -58,12 +59,36 @@ export default class extends React.Component {
     return isLoading ? (
       <Loading />
     ) : (
+<NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
 
-      <NavigationContainer>
-      <Tab.Navigator>
+            if (route.name === 'Music') {
+              iconName = focused
+                ? 'musical-notes'
+                : 'musical-notes-outline'
+            } else if (route.name === 'Weather') {
+              iconName = focused ? "cloud" : "cloud-outline";
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'skyblue',
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
         <Tab.Screen name="Music" component={MusicScreen} />
-        <Tab.Screen name ="Weather" component={
-        Weather
+        <Tab.Screen name="Weather" component={Weather
+      //     <Weather
+      //   name={name}
+      //   temp={Math.round(temp)}
+      //   temp_max={Math.round(temp_max)}
+      //   temp_min={Math.round(temp_min)}
+      //   condition={condition}
+      // />
+
         } />
       </Tab.Navigator>
     </NavigationContainer>
