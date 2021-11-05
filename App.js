@@ -80,14 +80,15 @@ export default class extends React.Component {
         })}
       >
         <Tab.Screen name="Music" component={MusicScreen} />
-        <Tab.Screen name="Weather" component={Weather
-      //     <Weather
-      //   name={name}
-      //   temp={Math.round(temp)}
-      //   temp_max={Math.round(temp_max)}
-      //   temp_min={Math.round(temp_min)}
-      //   condition={condition}
-      // />
+        <Tab.Screen name="Weather" component={
+          // Weather
+          <Weather
+        name={name}
+        temp={Math.round(temp)}
+        temp_max={Math.round(temp_max)}
+        temp_min={Math.round(temp_min)}
+        condition={condition}
+      />
 
         } />
       </Tab.Navigator>
