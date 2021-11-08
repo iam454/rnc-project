@@ -4,7 +4,6 @@ import Loading from "./Loading";
 import * as Location from "expo-location";
 import axios from "axios";
 import Weather from "./Weather";
-import MusicScreen from "./MusicScreen";
 
 
 import { Text, View } from 'react-native';
@@ -109,4 +108,3 @@ export default class extends React.Component {
           );
   }
 }
-

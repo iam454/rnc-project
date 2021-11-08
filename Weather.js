@@ -10,12 +10,7 @@ import {
 import PropTypes from "prop-types";
 import { LinearGradient } from "expo-linear-gradient";
 import Swiper from "react-native-swiper";
-
-import {
-  NanumGothic_400Regular,
-  NanumGothic_700Bold,
-  NanumGothic_800ExtraBold
-} from '@expo-google-fonts/nanum-gothic'
+import { Ionicons } from "@expo/vector-icons";
 
 
 import { 
@@ -41,10 +36,6 @@ import snow from "./components/snow.png";
 import squall from "./components/squall.png";
 import thunderstorm from "./components/thunderstorm.png";
 import tornado from "./components/tornado.png";
-
-
-
-
 
 const weatherOptions = {
   Thunderstorm: {
@@ -126,6 +117,7 @@ export default function Weather({
   tomorrowTempMin,
   tomorrowTempMax,
   tomorrowCondition,
+  musicName,
 }) 
 
 {
@@ -189,6 +181,12 @@ export default function Weather({
             <Text style={styles.tempMin}>Lo : {currentTempMin}°</Text>
             <Text style={styles.tempMax}>Hi : {currentTempMax}°</Text>
           </View>
+          <View style= {styles.musicRecommendView}>
+            <Text style = {styles.todayMusic}>
+            <Ionicons name="musical-notes-sharp" size={18} color="white" />  
+                Today's Music</Text>
+            <Text style = {styles.musicName}>musicnameandsinger</Text>
+          </View>
         </ImageBackground>
       </LinearGradient>
 
@@ -220,8 +218,17 @@ export default function Weather({
             <Text style={styles.tempMin}>Lo : {tomorrowTempMin}°</Text>
             <Text style={styles.tempMax}>Hi : {tomorrowTempMax}°</Text>
           </View>
+
+          <View style= {styles.musicRecommendView}>
+            <Text style = {styles.todayMusic}>
+            <Ionicons name="musical-notes-sharp" size={18} color="white" />
+                Tommorow's Music</Text>
+            <Text style = {styles.musicName}>musicnameandsinger</Text>
+          </View>
         </ImageBackground>
       </LinearGradient>
+
+
     </Swiper>
   );
 }
@@ -270,6 +277,25 @@ Weather.propTypes = {
     "Clear",
     "Clouds",
   ]).isRequired,
+  /*
+  musicName: PropTypes.oneOf([
+    "Thunderstorm",
+    "Drizzle",
+    "Rain",
+    "Snow",
+    "Mist",
+    "Smoke",
+    "Haze",
+    "Dust",
+    "Fog",
+    "Sand",
+    "Dust",
+    "Ash",
+    "Squall",
+    "Tornado",
+    "Clear",
+    "Clouds",
+  ]).isRequired,*/
 };
 
 const styles = StyleSheet.create({
@@ -282,13 +308,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   imgView: {
-    flex: 3,
+    flex: 4,
     alignItems: "center",
   },
   tempMinMaxView: {
-    flex: 2,
+    flex: 0.5,
     flexDirection: "row",
     justifyContent: "center",
+    paddingBottom: 100,
+  },
+  musicRecommendView: {
+    flex : 2.5,
+    flexDirection: "column",
+    alignItems: 'center',
     paddingBottom: 100,
   },
   name: {
@@ -311,27 +343,42 @@ const styles = StyleSheet.create({
     fontFamily : "Allerta_400Regular",
   },
   tempDay: {
-    fontSize: 25,
-    paddingTop: 5,
+    fontSize: 22,
+    paddingTop: 10,
     color: "#ffffff",
     fontFamily : "Allerta_400Regular",
   },
   tempNight: {
-    fontSize: 25,
+    fontSize: 22,
     paddingTop: 5,
     color: "#ffffff",
     fontFamily : "Allerta_400Regular",
   },
   tempMax: {
-    fontSize: 20,
+    fontSize: 15,
+    paddingTop: 15,
     paddingHorizontal: 10,
     color: "#ffffff",
     fontFamily : "Allerta_400Regular",
   },
   tempMin: {
-    fontSize: 20,
+    fontSize: 15,
+    paddingTop: 15,
     paddingHorizontal: 10,
     color: "#ffffff",
     fontFamily : "Allerta_400Regular",
   },
+  todayMusic: {
+    fontSize: 15,
+    paddingHorizontal: 10,
+    color: "#ffffff",
+    fontFamily : "Allerta_400Regular",
+  },
+  musicName :{
+    fontSize: 18,
+    paddingHorizontal: 10,
+    color: "#ffffff",
+    fontFamily : "Allerta_400Regular",
+  }
+
 });
