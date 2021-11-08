@@ -1,6 +1,6 @@
 library(httr)
 library(rvest)
-library(stringr)
+library("openxlsx")
 
 url = "https://www.melon.com/mymusic/dj/mymusicdjplaylistview_inform.htm?plylstSeq=496837151"
 get_url =GET(url)
@@ -18,5 +18,5 @@ song_list = append(song_list,song_name)
 singer_list=append(singer_list,singer_name)
 
 df = data.frame(song_list,singer_list)
-write.csv(df , "sunnysong.csv",row.names=FALSE)
+write.xlsx(df, file= "sunnysong.xlsx")
 rm(list=ls())
