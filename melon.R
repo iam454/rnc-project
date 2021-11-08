@@ -2,7 +2,7 @@ library(httr)
 library(rvest)
 library("openxlsx")
 
-url = "https://www.melon.com/mymusic/dj/mymusicdjplaylistview_inform.htm?plylstSeq=496837151"
+url = "https://www.melon.com/mymusic/dj/mymusicdjplaylistview_inform.htm?plylstSeq=467416984"
 get_url =GET(url)
 my_html = read_html(get_url,encoding = 'utf -8')
 song_name_p1= html_nodes(my_html,'.ellipsis.rank01')
@@ -18,5 +18,6 @@ song_list = append(song_list,song_name)
 singer_list=append(singer_list,singer_name)
 
 df = data.frame(song_list,singer_list)
+write.csv(df, file= "sunnysong.csv",row.names = FALSE)
 write.xlsx(df, file= "sunnysong.xlsx")
 rm(list=ls())
