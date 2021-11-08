@@ -37,6 +37,14 @@ import squall from "./components/squall.png";
 import thunderstorm from "./components/thunderstorm.png";
 import tornado from "./components/tornado.png";
 
+import * as fs from 'fs';
+fs.readFile("./sunnysong.csv", function(err, data) {
+  if(err) throw err;
+  var array = data.toString().split("\n");
+  let i =0;
+    const data = array[i+1];
+});
+
 const weatherOptions = {
   Thunderstorm: {
     iconName: thunderstorm,
@@ -223,7 +231,7 @@ export default function Weather({
             <Text style = {styles.todayMusic}>
             <Ionicons name="musical-notes-sharp" size={18} color="white" />
                 Tommorow's Music</Text>
-            <Text style = {styles.musicName}>musicnameandsinger</Text>
+            <Text style = {styles.musicName}>{data}</Text>
           </View>
         </ImageBackground>
       </LinearGradient>

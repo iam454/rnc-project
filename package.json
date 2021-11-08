@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@expo-google-fonts/allerta": "^0.2.0",
     "@expo-google-fonts/allerta-stencil": "^0.2.0",
     "@expo-google-fonts/inter": "^0.2.0",
@@ -23,6 +24,8 @@
     "expo-linear-gradient": "~9.2.0",
     "expo-location": "~12.1.2",
     "expo-status-bar": "~1.0.4",
+    "fs": "^0.0.1-security",
+    "nodeify": "^1.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
@@ -34,6 +37,7 @@
     "react-native-swiper-view": "^1.2.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4",
+    "rn": "^0.0.1",
     "swiper": "^7.0.1"
   },
   "devDependencies": {
