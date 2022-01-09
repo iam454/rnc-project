@@ -13,7 +13,7 @@
 <a href="#"><img src='./img/result.gif'>
   
 ### Goal 
-<a href="#"><img src='./img/design.PNG'>
+<a href="#"><img src='./img/design.PNG' width="400" height="200"/>
 <a href="#"><img src='./img/goal.PNG' width="200" height="400"/>
   
   
