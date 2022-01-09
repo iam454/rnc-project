@@ -12,7 +12,7 @@
 ## Demonstration
 <a href="#"><img src='./img/result.gif'>
   
-### Goal 
+## Goal 
 <a href="#"><img src='./img/design.PNG' width="600" height="280"/>
 <a href="#"><img src='./img/goal.PNG' width="200" height="400"/>
   
