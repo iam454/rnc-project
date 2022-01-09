@@ -14,6 +14,6 @@
   
 ### Goal 
 <a href="#"><img src='./img/design.PNG'>
-<a href="#"><img src='./img/goal.PNG'>
+<a href="#"><img src='./img/goal.PNG' width="50%" height="50%">
   
   
