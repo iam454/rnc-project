@@ -9,7 +9,7 @@
 ## Environment
 - Framework : React Expo
 
-### Demonstration
+## Demonstration
 <a href="#"><img src='./img/result.gif'>
   
 ### Goal 
