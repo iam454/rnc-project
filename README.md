@@ -10,9 +10,10 @@
 - Framework : React Expo
 
 ### Demonstration
-<a href="#"><img src='./img/'>
+<a href="#"><img src='./img/result.gif'>
   
-### Main
-<a href="#"><img src='./img/'>
+### Goal 
+<a href="#"><img src='./img/design.PNG'>
+<a href="#"><img src='./img/goal.PNG'>
   
   
